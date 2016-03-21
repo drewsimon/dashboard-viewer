@@ -43,10 +43,10 @@ export DISPLAY=:0
 
 # Download custom wallpaper
 if [ -n "$WALLPAPER_URL" ]; then
-  curl -o  "$WALLPAPER_URL"
+  curl -o "$CUSTOM_WALLPAPER" "$WALLPAPER_URL"
 fi
 
-if [ -e $CUSTOM_WALLPAPER  ]; then
+if [ -e "$CUSTOM_WALLPAPER"  ]; then
   WALLPAPER=CUSTOM_WALLPAPER
 fi
 
