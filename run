@@ -2,6 +2,8 @@
 # set -euo pipefail
 set -x
 URL=${URL:-http://jodel-app.com}
+WALLPAPER=/etc/wallpaper.png
+CUSTOM_WALLPAPER=/etc/custom-wallpaper.png
 
 export PASS=${PASS:=root}
 echo "root:$PASS" | chpasswd
@@ -39,8 +41,17 @@ X_PID=$!
 echo "Waiting for X to be ready"
 export DISPLAY=:0
 
+# Download custom wallpaper
+if [ -n "$WALLPAPER_URL" ]; then
+  curl -o  "$WALLPAPER_URL"
+fi
+
+if [ -e $CUSTOM_WALLPAPER  ]; then
+  WALLPAPER=CUSTOM_WALLPAPER
+fi
+
 # Setting wallpaper and polling X in one!
-while ! feh --bg-scale /etc/wallpaper.png; do sleep 1; done
+while ! feh --bg-scale $WALLPAPER; do sleep 1; done
 matchbox-window-manager -use_cursor no &
 
 while ! curl -sf -o /dev/null "$URL"; do sleep 1; done
