@@ -43,11 +43,11 @@ export DISPLAY=:0
 
 # Download custom wallpaper
 if [ -n "$WALLPAPER_URL" ]; then
-  curl -o "$CUSTOM_WALLPAPER" "$WALLPAPER_URL"
-fi
-
-if [ -e "$CUSTOM_WALLPAPER"  ]; then
-  WALLPAPER=CUSTOM_WALLPAPER
+  if [ -e "$CUSTOM_WALLPAPER"  ]; then
+    WALLPAPER=$CUSTOM_WALLPAPER
+  else
+    curl -o "$CUSTOM_WALLPAPER" "$WALLPAPER_URL"
+  fi
 fi
 
 # Setting wallpaper and polling X in one!
