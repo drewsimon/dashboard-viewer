@@ -3,7 +3,7 @@
 set -x
 URL=${URL:-http://jodel-app.com}
 WALLPAPER=/etc/wallpaper.png
-CUSTOM_WALLPAPER=/etc/custom-wallpaper.png
+CUSTOM_WALLPAPER=/data/custom-wallpaper.png
 
 export PASS=${PASS:=root}
 echo "root:$PASS" | chpasswd
