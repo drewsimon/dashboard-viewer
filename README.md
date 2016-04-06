@@ -17,6 +17,8 @@ Just clone this repo instead of the example.
 After that, you need to set some [environment variables](http://docs.resin.io/#/pages/management/env-vars.md):
 
 - `URL`: Dashboard URL to open
+- `WALLPAPER_URL`: URL for a custom wallpaper will download on the first
+  boot
 - `PASS`: The dashboard runs dropbear, this var will be the root password. If unset, defaults to 'root'
 
 To use openvpn, set the following options:
