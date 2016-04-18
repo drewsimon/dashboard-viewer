@@ -8,7 +8,7 @@ CUSTOM_WALLPAPER=/data/custom-wallpaper.png
 export PASS=${PASS:=root}
 echo "root:$PASS" | chpasswd
 
-rm -rf /tmp/*
+rm -rf /data/tmp/*
 
 if [ -n "$REMOTE_HOST" ]; then
   cat <<EOF > /etc/openvpn.conf
@@ -60,6 +60,6 @@ xset -dpms
 xset s off
 xset s noblank
 
-iceweasel "$URL"
+iceweasel "$URL" -profile /data/.mozilla/firefox
 
 sleep infinity
