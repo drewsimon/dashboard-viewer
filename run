@@ -60,6 +60,6 @@ xset -dpms
 xset s off
 xset s noblank
 
-iceweasel "$URL" -profile /data/.mozilla/firefox
+iceweasel "$URL"
 
 sleep infinity
